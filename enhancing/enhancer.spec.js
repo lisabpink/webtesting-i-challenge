@@ -13,3 +13,19 @@ it("should run test true", function() {
       });
     });
 });
+
+describe("success()", function() {
+    it("should enhance item if lvl is not 20 succeed", function() {
+      let item = {};
+      item.enhancement = 0;
+      const enhanced = enhancer.succeed(item);
+      expect(enhanced.enhancement).toBe(1);
+    });
+    it("should not enhance item if lvl is 20 succeed", function() {
+      let item2 = {};
+      item2.enhancement = 20;
+      expect(() => {
+        enhancer.succeed(item2);
+      }).toThrow();
+    });
+  });
